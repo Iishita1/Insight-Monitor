@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Social Media Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Navigation Styles */
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #0d6efd;
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            color: white;
+            padding: 100px 0;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            border: none;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #00A0DC;
+        }
+
+        .team-member {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member img:hover {
+            transform: scale(1.1);
+        }
+
+        .social-icon {
+            font-size: 1.5rem;
+            margin: 0 10px;
+            color: #1a1a1a;
+            transition: color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #00A0DC;
+        }
+
+        .platform-stats {
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+            color: white;
+        }
+
+        .platform-stats:hover {
+            transform: translateY(-5px);
+        }
+
+        .instagram-stats {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+
+        .linkedin-stats {
+            background: linear-gradient(45deg, #0077B5, #00A0DC);
+        }
+
+        .twitter-stats {
+            background: linear-gradient(45deg, #1DA1F2, #14171A);
+        }
+
+        .youtube-stats {
+            background: linear-gradient(45deg, #FF0000, #282828);
+        }
+
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="FP.html">
+                <img src="logo.jpg" style="width:2.8rem;height: 2.8rem;"></img> Insight Monitor
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="FP.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="About.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Platforms
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="insta.html"><i class="fab fa-instagram me-2"></i>Instagram</a></li>
+                            <li><a class="dropdown-item" href="x.html"><i class="fab fa-twitter me-2"></i>Twitter</a></li>
+                            <li><a class="dropdown-item" href="in.html"><i class="fab fa-linkedin me-2"></i>LinkedIn</a></li>
+                            <li><a class="dropdown-item" href="UT.html"><i class="fab fa-youtube me-2"></i>YouTube</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Help Center</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 mb-4">About Our Social Media Dashboard</h1>
+            <p class="lead">Track and analyze your social media performance across multiple platforms in one centralized location.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <!-- Features Section -->
+        <h2 class="text-center mb-5">Key Features</h2>
+        <div class="row g-4 mb-5">
+            <div class="col-md-4">
+                <div class="card feature-card p-4">
+                    <div class="text-center">
+                        <i class="fas fa-chart-line feature-icon"></i>
+                        <h3>Real-time Analytics</h3>
+                        <p>Track your social media performance with live updates and detailed analytics.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card feature-card p-4">
+                    <div class="text-center">
+                        <i class="fas fa-desktop feature-icon"></i>
+                        <h3>Cross-platform Integration</h3>
+                        <p>Manage multiple social media accounts from a single dashboard.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card feature-card p-4">
+                    <div class="text-center">
+                        <i class="fas fa-chart-bar feature-icon"></i>
+                        <h3>Custom Reports</h3>
+                        <p>Generate detailed reports and insights for your social media performance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Section -->
+        <h2 class="text-center mb-5">Our Team</h2>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="team-member">
+                    <img src="/api/placeholder/150/150" alt="Team Member 1">
+                    <h4>Ishita Nanda</h4>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/ishita-nanda-a61941324?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BAG%2FsXM4gSbuXkIgwkMF67g%3D%3D" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/NopeIshita" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="team-member">
+                    <img src="/api/placeholder/150/150" alt="Team Member 2">
+                    <h4>Jaskiran Kaur</h4>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/jaskiran-kaur-615562324?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="team-member">
+                    <img src="/api/placeholder/150/150" alt="Team Member 3">
+                    <h4>Hitaishi Sehgal</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 py-4">
+        <div class="container text-center">
+            <p>&copy; 2024 Social Media Dashboard. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
