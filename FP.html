@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Card Styles */
+        .card {
+            transition: transform 0.3s ease-in-out;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px) ;
+        }
+        
+        .instagram-card {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+        
+        .linkedin-card {
+            background: linear-gradient(45deg, #0077B5, #00A0DC);
+        }
+        
+        .twitter-card {
+            background: linear-gradient(45deg, #1DA1F2, #14171A);
+        }
+        
+        .youtube-card {
+            background: linear-gradient(45deg, #FF0000, #282828);
+        }
+        
+        .stat-card {
+            color: white;
+            padding: 1.5rem;
+        }
+        
+        .platform-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Navigation Styles */
+        .navbar{
+            margin-bottom: 1.5rem;
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #0d6efd;
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Chart Styles */
+        .chart-container {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Feedback Form Styles */
+        .feedback-section {
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            width: 50rem;
+            color: white;
+        }
+
+        .feedback-form .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .feedback-form .form-control:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #00A0DC;
+            box-shadow: 0 0 0 0.25rem rgba(0, 160, 220, 0.25);
+        }
+
+        .rating-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+
+        .rating-star {
+            font-size: 2rem;
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.3);
+            transition: color 0.3s ease;
+        }
+
+        .rating-star:hover,
+        .rating-star.active {
+            color: #FFD700;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #00A0DC, #0077B5);
+            border: none;
+            padding: 0.75rem 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="FP.html">
+                <img src="logo.jpg" style="width:2.8rem;height: 2.8rem;"></img> Insight Monitor
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="FP.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="About.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Platforms
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="insta.html"><i class="fab fa-instagram me-2"></i>Instagram</a></li>
+                            <li><a class="dropdown-item" href="x.html"><i class="fab fa-twitter me-2"></i>Twitter</a></li>
+                            <li><a class="dropdown-item" href="in.html"><i class="fab fa-linkedin me-2"></i>LinkedIn</a></li>
+                            <li><a class="dropdown-item" href="UT.html"><i class="fab fa-youtube me-2"></i>YouTube</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Help Center</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Stats Cards -->
+        <div class="row g-4">
+            <!-- Instagram Card -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card instagram-card stat-card">
+                    <div class="text-center">
+                        <i class="fab fa-instagram platform-icon"></i>
+                        <h3>Instagram</h3>
+                        <div class="stats-number">125.4K</div>
+                        <p>Total Impressions</p>
+                        <div class="stats-number">82.7K</div>
+                        <p>Profile Reach</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LinkedIn Card -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card linkedin-card stat-card">
+                    <div class="text-center">
+                        <i class="fab fa-linkedin platform-icon"></i>
+                        <h3>LinkedIn</h3>
+                        <div class="stats-number">45.2K</div>
+                        <p>Total Impressions</p>
+                        <div class="stats-number">28.9K</div>
+                        <p>Profile Reach</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Twitter Card -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card twitter-card stat-card">
+                    <div class="text-center">
+                        <i class="fab fa-twitter platform-icon"></i>
+                        <h3>Twitter</h3>
+                        <div class="stats-number">89.1K</div>
+                        <p>Total Impressions</p>
+                        <div class="stats-number">52.3K</div>
+                        <p>Profile Reach</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- YouTube Card -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card youtube-card stat-card">
+                    <div class="text-center">
+                        <i class="fab fa-youtube platform-icon"></i>
+                        <h3>YouTube</h3>
+                        <div class="stats-number">250.8K</div>
+                        <p>Total Impressions</p>
+                        <div class="stats-number">180.5K</div>
+                        <p>Profile Reach</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="chart-container">
+                    <h4>Impressions Overview</h4>
+                    <canvas id="impressionsChart"></canvas>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="chart-container">
+                    <h4>Reach Overview</h4>
+                    <canvas id="reachChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feedback Form -->
+        <div class="feedback-section">
+            <h3 class="text-center mb-4">Your Feedback Matters!</h3>
+            <form class="feedback-form" id="feedbackForm">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label d-block text-center">Rate your experience</label>
+                    <div class="rating-container">
+                        <i class="fas fa-star rating-star" data-rating="1"></i>
+                        <i class="fas fa-star rating-star" data-rating="2"></i>
+                        <i class="fas fa-star rating-star" data-rating="3"></i>
+                        <i class="fas fa-star rating-star" data-rating="4"></i>
+                        <i class="fas fa-star rating-star" data-rating="5"></i>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="feedback" class="form-label">Feedback</label>
+                    <textarea class="form-control" id="feedback" rows="4" placeholder="Share your thoughts with us"></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn submit-btn text-white">Submit Feedback</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script>
+        // Charts Configuration
+        const createChart = (ctx, label, datasets) => {
+            return new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: datasets
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
+                    }
+                }
+            });
+        };
+
+        // Impressions Chart
+        const impressionsCtx = document.getElementById('impressionsChart').getContext('2d');
+        createChart(impressionsCtx, 'Impressions', [
+            {
+                label: 'Instagram',
+                data: [95.4, 105.2, 110.8, 115.6, 120.3, 125.4],
+                borderColor: '#E1306C',
+                tension: 0.4
+            },
+            {
+                label: 'LinkedIn',
+                data: [35.2, 38.5, 40.1, 42.3, 43.8, 45.2],
+                borderColor: '#0077B5',
+                tension: 0.4
+            },
+            {
+                label: 'Twitter',
+                data: [75.6, 78.9, 82.3, 84.5, 86.8, 89.1],
+                borderColor: '#1DA1F2',
+                tension: 0.4
+            },
+            {
+                label: 'YouTube',
+                data: [200.5, 215.3, 225.8, 235.2, 242.6, 250.8],
+                borderColor: '#FF0000',
+                tension: 0.4
+            }
+        ]);
+
+        // Reach Chart
+        const reachCtx = document.getElementById('reachChart').getContext('2d');
+        createChart(reachCtx, 'Reach', [
+            {
+                label: 'Instagram',
+                data: [65.2, 68.9, 72.4, 75.8, 79.3, 82.7],
+                borderColor: '#E1306C',
+                tension: 0.4
+            },
+            {
+                label: 'LinkedIn',
+                data: [22.3, 24.1, 25.6, 26.8, 27.9, 28.9],
+                borderColor: '#0077B5',
+                tension: 0.4
+            },
+            {
+                label: 'Twitter',
+                data: [42.5, 45.2, 47.8, 49.4, 50.9, 52.3],
+                borderColor: '#1DA1F2',
+                tension: 0.4
+            },
+            {
+                label: 'YouTube',
+                data: [150.2, 158.6, 165.3, 171.8, 176.2, 180.5],
+                borderColor: '#FF0000',
+                tension: 0.4
+            }
+        ]);
+
+        // Feedback Form Rating System
+        document.querySelectorAll('.rating-star').forEach(star => {
+            star.addEventListener('click', (e) => {
+                const rating = e.target.dataset.rating;
+                document.querySelectorAll('.rating-star').forEach(s => {
+                    s.classList.remove('active');
+                    if (s.dataset.rating <= rating) {
+                        s.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // Feedback Form Submission
+        document.getElementById('feedbackForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your feedback!');
+            e.target.reset();
+            document.querySelectorAll('.rating-star').forEach(star => {
+                star.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
