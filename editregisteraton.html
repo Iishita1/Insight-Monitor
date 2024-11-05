@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+</head>
+<style>
+    body {
+    background-image: url(social.jpg);
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.registration-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.registration-form h2 {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.btn-warning {
+    background-color: #FFC107;
+    border: none;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+}
+</style>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form class="registration-form">
+                    <h2 class="text-center">Sign Up</h2>
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password"><i class="fas fa-lock"></i> Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="retype-password"><i class="fas fa-lock"></i> Re-type Password</label>
+                        <input type="password" class="form-control" id="retype-password" placeholder="Re-type Password" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="first-name"><i class="fas fa-user"></i> First Name</label>
+                            <input type="text" class="form-control" id="first-name" placeholder="First Name" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="last-name"><i class="fas fa-user"></i> Last Name</label>
+                            <input type="text" class="form-control" id="last-name" placeholder="Last Name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Gender</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="male" value="male" required>
+                            <label class="form-check-label" for="male">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="female" value="female" required>
+                            <label class="form-check-label" for="female">Female</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <select class="form-control" id="country" required>
+                            <option value="">Select a country</option>
+                            <option value="US">United States</option>
+                            <option value="CA">Canada</option>
+                            <option value="GB">United Kingdom</option>
+                            <!-- Add more countries as needed -->
+                        </select>
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="terms" required>
+                        <label class="form-check-label" for="terms">I agree with <a href="t&c.html">Terms & Conditions </a></label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-warning btn-block">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+        // You can add custom validation or interactivity here if needed
+document.querySelector("form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    alert("Registration successful!");
+});
+    </script>
+</body>
+</html>
