@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LinkedIn Analytics Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         /* Basic reset */
         * {
@@ -19,14 +21,28 @@
             color: #333;
         }
 
-        /* Header styling */
-        .header {
-            text-align: center;
-            padding: 20px;
-            background-color: #0073b1;
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
+        /* Navigation Styles */
+        .navbar{
+            margin-bottom: 1.5rem;
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #0d6efd;
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
         }
 
         /* Top metrics section */
@@ -75,9 +91,41 @@
     </style>
 </head>
 <body>
-
-    <!-- Header -->
-    <div class="header">LinkedIn Analytics Dashboard using Power BI</div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="FP.html">
+                <img src="logo.jpg" style="width:2.8rem;height: 2.8rem;"></img> Insight Monitor
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="FP.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="About.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Platforms
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="insta.html"><i class="fab fa-instagram me-2"></i>Instagram</a></li>
+                            <li><a class="dropdown-item" href="x.html"><i class="fab fa-twitter me-2"></i>Twitter</a></li>
+                            <li><a class="dropdown-item" href="in.html"><i class="fab fa-linkedin me-2"></i>LinkedIn</a></li>
+                            <li><a class="dropdown-item" href="UT.html"><i class="fab fa-youtube me-2"></i>YouTube</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="help.html">Help Center</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <!-- Top Metrics -->
     <div class="top-metrics">
