@@ -8,7 +8,6 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-image: url(social.jpg);
             font-family: Arial, sans-serif;
             background-color: #f0f2f5;
             display: flex;
@@ -68,26 +67,37 @@
             font-size: 14px;
             margin-top: 10px;
         }
+
+        .input-group-addon {
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            color: #007BFF;
+        }
     </style>
 </head>
 <body>
     <div class="login-container">
         <h1 class="text-center">Login</h1>
         <form id="loginForm" onsubmit="return validateForm()">
-            <div class="form-group">
+            <div class="form-group position-relative">
                 <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" name="username" required>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Enter your email" required>
             </div>
-            <div class="form-group">
+            <div class="form-group position-relative">
                 <label for="password">Password</label>
                 <input type="password" class="form-control" id="password" name="password" required>
+                <span class="input-group-addon" onclick="togglePassword()">Show</span>
             </div>
-            <button type="submit" class="btn login-button" >Login</button>
+            <button type="submit" class="btn login-button">Login</button>
             <p id="errorMessage" class="error-message"></p>
         </form>
         <div class="footer text-center">
             <p>Don't have an account? <a href="registeration.html">Sign up</a></p>
-            <p><a href="forgot_password.html">Forgot password?</a></p>
+            <p><a href="fgtpswd.html">Forgot password?</a></p>
         </div>
     </div>
 
@@ -98,26 +108,42 @@
 
     <script>
         function validateForm() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const errorMessage = document.getElementById('errorMessage');
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const errorMessage = document.getElementById('errorMessage');
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email validation pattern
 
-            // Clear previous error message
-            errorMessage.textContent = '';
+    // Clear previous error message
+    errorMessage.textContent = '';
+    errorMessage.style.display = 'none';
 
-            if (username === '' || password === '') {
-                errorMessage.textContent = 'Both fields are required.';
-                return false;
-            }
+    // Validate username (email format)
+    if (!emailPattern.test(username)) {
+        errorMessage.textContent = 'Please enter a valid email address.';
+        errorMessage.style.display = 'block';
+        return false;
+    }
 
-            // Example: Check for a minimum password length
-            if (password.length < 6) {
-                errorMessage.textContent = 'Password must be at least 6 characters long.';
-                return false;
-            }
+    // Check if password is strong enough
+    if (password.length < 6) {
+        errorMessage.textContent = 'Password must be at least 6 characters long.';
+        errorMessage.style.display = 'block';
+        return false;
+    } else if (!/[A-Z]/.test(password)) {
+        errorMessage.textContent = 'Password must include at least one uppercase letter.';
+        errorMessage.style.display = 'block';
+        return false;
+    } else if (!/[0-9]/.test(password)) {
+        errorMessage.textContent = 'Password must include at least one number.';
+        errorMessage.style.display = 'block';
+        return false;
+    }
 
-            return true;
-        }
+    // All validations passed - redirect to fb.htm
+    window.location.href = "fb.html";
+    return false; // Prevent form submission
+}
+
     </script>
 </body>
 </html>
