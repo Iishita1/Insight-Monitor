@@ -84,58 +84,6 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        /* Feedback Form Styles */
-        .feedback-section {
-            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
-            border-radius: 15px;
-            padding: 2rem;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-            width: 50rem;
-            color: white;
-        }
-
-        .feedback-form .form-control {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-        }
-
-        .feedback-form .form-control:focus {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: #00A0DC;
-            box-shadow: 0 0 0 0.25rem rgba(0, 160, 220, 0.25);
-        }
-
-        .rating-container {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin: 1rem 0;
-        }
-
-        .rating-star {
-            font-size: 2rem;
-            cursor: pointer;
-            color: rgba(255, 255, 255, 0.3);
-            transition: color 0.3s ease;
-        }
-
-        .rating-star:hover,
-        .rating-star.active {
-            color: #FFD700;
-        }
-
-        .submit-btn {
-            background: linear-gradient(45deg, #00A0DC, #0077B5);
-            border: none;
-            padding: 0.75rem 2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-        }
     </style>
 </head>
 <body class="bg-light">
@@ -181,6 +129,7 @@
         <div class="row g-4">
             <!-- Instagram Card -->
             <div class="col-md-6 col-lg-3">
+                <a href="insta.html">
                 <div class="card instagram-card stat-card">
                     <div class="text-center">
                         <i class="fab fa-instagram platform-icon"></i>
@@ -191,10 +140,12 @@
                         <p>Profile Reach</p>
                     </div>
                 </div>
+            </a>
             </div>
 
             <!-- LinkedIn Card -->
             <div class="col-md-6 col-lg-3">
+                <a href="in.html">
                 <div class="card linkedin-card stat-card">
                     <div class="text-center">
                         <i class="fab fa-linkedin platform-icon"></i>
@@ -205,10 +156,12 @@
                         <p>Profile Reach</p>
                     </div>
                 </div>
+            </a>
             </div>
 
             <!-- Twitter Card -->
             <div class="col-md-6 col-lg-3">
+                <a href="x.html">
                 <div class="card twitter-card stat-card">
                     <div class="text-center">
                         <i class="fab fa-twitter platform-icon"></i>
@@ -219,10 +172,12 @@
                         <p>Profile Reach</p>
                     </div>
                 </div>
+            </a>
             </div>
 
             <!-- YouTube Card -->
             <div class="col-md-6 col-lg-3">
+                <a href="UT.html">
                 <div class="card youtube-card stat-card">
                     <div class="text-center">
                         <i class="fab fa-youtube platform-icon"></i>
@@ -233,6 +188,7 @@
                         <p>Profile Reach</p>
                     </div>
                 </div>
+            </a>
             </div>
         </div>
 
@@ -251,39 +207,14 @@
                 </div>
             </div>
         </div>
-
-        <!-- Feedback Form -->
-        <div class="feedback-section">
-            <h3 class="text-center mb-4">Your Feedback Matters!</h3>
-            <form class="feedback-form" id="feedbackForm">
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter your name">
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter your email">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label d-block text-center">Rate your experience</label>
-                    <div class="rating-container">
-                        <i class="fas fa-star rating-star" data-rating="1"></i>
-                        <i class="fas fa-star rating-star" data-rating="2"></i>
-                        <i class="fas fa-star rating-star" data-rating="3"></i>
-                        <i class="fas fa-star rating-star" data-rating="4"></i>
-                        <i class="fas fa-star rating-star" data-rating="5"></i>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="feedback" class="form-label">Feedback</label>
-                    <textarea class="form-control" id="feedback" rows="4" placeholder="Share your thoughts with us"></textarea>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn submit-btn text-white">Submit Feedback</button>
-                </div>
-            </form>
-        </div>
+        
     </div>
+    <!-- Footer -->
+<footer class="bg-dark text-white mt-5 py-4">
+    <div class="container text-center">
+        <p>&copy; 2024 Insight Monitor. All rights reserved.</p>
+    </div>
+</footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
@@ -378,15 +309,6 @@
             });
         });
 
-        // Feedback Form Submission
-        document.getElementById('feedbackForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your feedback!');
-            e.target.reset();
-            document.querySelectorAll('.rating-star').forEach(star => {
-                star.classList.remove('active');
-            });
-        });
     </script>
 </body>
 </html>
