@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YouTube Analytics Dashboard</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         /* Basic Reset */
@@ -14,13 +16,43 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-color: #1DA1F2;
+            --secondary-color: #14171A;
+            --accent-color: #657786;
+            --light-bg: #F5F8FA;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --instagram-color: #E1306C;
+            --linkedin-color: #0077B5;
+            --youtube-color: #FF0000;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+        }
+
         /* Navigation Styles */
-        .navbar{
+        .navbar {
             margin-bottom: 1.5rem;
         }
+
+        .navbar-toggler {
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
         .nav-link {
             position: relative;
             transition: color 0.3s;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: white;
         }
 
         .nav-link::after {
@@ -30,12 +62,51 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background-color: #0d6efd;
+            background-color: white;
             transition: width 0.3s;
         }
 
         .nav-link:hover::after {
             width: 100%;
+        }
+
+        .dropdown-menu {
+            background-color: var(--secondary-color);
+        }
+
+        .dropdown-item {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .dropdown-item:hover, .dropdown-item:focus, .dropdown-item.active {
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        /* Responsive adjustments for the navbar */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+
+            .navbar-nav {
+                margin-top: 1rem;
+            }
+
+            .dropdown-menu {
+                border: none;
+                background-color: transparent;
+            }
+
+            .dropdown-item {
+                color: white;
+                padding-left: 0;
+            }
+
+            .dropdown-item i {
+                margin-right: 10px;
+            }
         }
 
         /* General Styling */
@@ -90,26 +161,26 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="FP.html">
-                <img src="logo.jpg" style="width:2.8rem;height: 2.8rem;"></img> Insight Monitor
+                <img src="logo.jpg" style="width:2.8rem;height: 2.8rem;" alt="Logo"> Insight Monitor
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="FP.html">Dashboard</a>
+                        <a class="nav-link" href="FP.html">Dashboard</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="About.html">About</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Platforms
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="insta.html"><i class="fab fa-instagram me-2"></i>Instagram</a></li>
-                            <li><a class="dropdown-item" href="x.html"><i class="fab fa-twitter me-2"></i>Twitter</a></li>
+                            <li><a class="dropdown-item active" href="x.html"><i class="fab fa-twitter me-2"></i>Twitter</a></li>
                             <li><a class="dropdown-item" href="in.html"><i class="fab fa-linkedin me-2"></i>LinkedIn</a></li>
                             <li><a class="dropdown-item" href="UT.html"><i class="fab fa-youtube me-2"></i>YouTube</a></li>
                         </ul>
@@ -183,15 +254,20 @@
             <canvas id="likesChart"></canvas>
         </div>
     </div>
-    <!-- Footer -->
-<footer class="bg-dark text-white mt-5 py-4">
-    <div class="container text-center">
-        <p>&copy; 2024 Insight Monitor. All rights reserved.</p>
-    </div>
-</footer>
 
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 py-4">
+        <div class="container text-center">
+            <p>&copy; 2024 Insight Monitor. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
     <!-- Chart.js Library -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <script>
         // Overview Chart
         const overviewChart = new Chart(document.getElementById('overviewChart'), {

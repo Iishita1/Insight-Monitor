@@ -24,12 +24,26 @@
         }
 
         /* Navigation Styles */
-        .navbar{
+        .navbar {
             margin-bottom: 1.5rem;
         }
+
+        .navbar-toggler {
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
         .nav-link {
             position: relative;
             transition: color 0.3s;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: white;
         }
 
         .nav-link::after {
@@ -39,7 +53,7 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background-color: #0d6efd;
+            background-color: white;
             transition: width 0.3s;
         }
 
@@ -47,69 +61,55 @@
             width: 100%;
         }
 
-        /* New styles for the platform navigation */
-        .platform-nav {
-            background-color: white;
-            box-shadow: var(--card-shadow);
-            padding: 0.5rem 0;
+        .dropdown-menu {
+            background-color: var(--secondary-color);
         }
 
-        .platform-nav .nav-link {
-            color: var(--secondary-color);
-            padding: 0.5rem 1rem;
-            margin: 0 0.2rem;
-            border-radius: 0.5rem;
-            transition: all 0.3s ease;
+        .dropdown-item {
+            color: rgba(255,255,255,0.7);
         }
 
-        .platform-nav .nav-link:hover {
-            background-color: var(--light-bg);
-        }
-
-        .platform-nav .nav-link.instagram:hover {
-            color: var(--instagram-color);
-        }
-
-        .platform-nav .nav-link.linkedin:hover {
-            color: var(--linkedin-color);
-        }
-
-        .platform-nav .nav-link.youtube:hover {
-            color: var(--youtube-color);
-        }
-
-        .platform-nav .nav-link.twitter:hover {
-            color: var(--primary-color);
-        }
-
-        .sidebar {
-            background-color: white;
-            box-shadow: var(--card-shadow);
-            height: 100vh;
-            position: fixed;
-            padding-top: 1rem;
-        }
-
-        .sidebar .nav-link {
-            color: var(--secondary-color);
-            padding: 0.8rem 1rem;
-            margin: 0.2rem 0;
-            border-radius: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .sidebar .nav-link:hover,
-        .sidebar .nav-link.active {
-            background-color: var(--primary-color);
+        .dropdown-item:hover, .dropdown-item:focus, .dropdown-item.active {
+            background-color: rgba(255,255,255,0.1);
             color: white;
         }
 
-        .sidebar .nav-link i {
-            margin-right: 0.5rem;
-            width: 1.5rem;
-            text-align: center;
-        }
+        /* Responsive adjustments for the navbar */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                max-height: 80vh;
+                overflow-y: auto;
+            }
 
+            .navbar-nav {
+                margin-top: 1rem;
+            }
+
+            .dropdown-menu {
+                border: none;
+                background-color: transparent;
+            }
+
+            .dropdown-item {
+                color: white;
+                padding-left: 0;
+            }
+
+            .dropdown-item i {
+                margin-right: 10px;
+            }
+        }
+        @media (max-width: 768px) {
+            
+            .main-content {
+                margin-left: 0;
+                padding: 1rem;
+            }
+            
+            .stat-card .stat-value {
+                font-size: 1.5rem;
+            }
+        }
         .main-content {
             margin-left: 240px;
             padding: 2rem;
@@ -169,263 +169,248 @@
             justify-content: center;
             margin-right: 1rem;
         }
-
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-            }
-            
-            .main-content {
-                margin-left: 0;
-                padding: 1rem;
-            }
-            
-            .stat-card .stat-value {
-                font-size: 1.5rem;
-            }
-        }
     </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <div class="container">
-        <a class="navbar-brand" href="FP.html">
-            <img src="logo.jpg" style="width:2.8rem;height: 2.8rem;"></img> Insight Monitor
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="FP.html">Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="About.html">About</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" role="button" data-bs-toggle="dropdown">
-                        Platforms
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="insta.html"><i class="fab fa-instagram me-2"></i>Instagram</a></li>
-                        <li><a class="dropdown-item active" href="x.html"><i class="fab fa-twitter me-2"></i>Twitter</a></li>
-                        <li><a class="dropdown-item" href="in.html"><i class="fab fa-linkedin me-2"></i>LinkedIn</a></li>
-                        <li><a class="dropdown-item" href="UT.html"><i class="fab fa-youtube me-2"></i>YouTube</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="help.html">Help Center</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-        <!-- Main Content -->
-        <div class="col-md-9 col-lg-10">
-            <div class="main-content">
-                <!-- Stats Row -->
-                <div class="row mb-4">
-                    <div class="col-md-3">
-                        <div class="card stat-card">
-                            <div class="card-body">
-                                <h6 class="card-title">Followers</h6>
-                                <div class="stat-value">45.2K</div>
-                                <small class="text-white-50">↑ 2.3% this week</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card stat-card">
-                            <div class="card-body">
-                                <h6 class="card-title">Engagement Rate</h6>
-                                <div class="stat-value">4.8%</div>
-                                <small class="text-white-50">↑ 0.5% this week</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card stat-card">
-                            <div class="card-body">
-                                <h6 class="card-title">Impressions</h6>
-                                <div class="stat-value">128K</div>
-                                <small class="text-white-50">↑ 12% this week</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card stat-card">
-                            <div class="card-body">
-                                <h6 class="card-title">Link Clicks</h6>
-                                <div class="stat-value">3.4K</div>
-                                <small class="text-white-50">↑ 1.7% this week</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Charts Row -->
-                <div class="row mb-4">
-                    <div class="col-md-8">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Engagement Overview</h5>
-                                <div class="chart-container">
-                                    <canvas id="engagementChart"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Engagement Distribution</h5>
-                                <div class="chart-container">
-                                    <canvas id="distributionChart"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Recent Activity -->
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Recent Activity</h5>
-                                <div class="activity-item d-flex align-items-center">
-                                    <div class="activity-icon">
-                                        <i class="fas fa-retweet"></i>
-                                    </div>
-                                    <div>
-                                        <h6 class="mb-1">New Retweet Record</h6>
-                                        <small class="text-muted">Your post reached 1,000 retweets</small>
-                                    </div>
-                                </div>
-                                <div class="activity-item d-flex align-items-center">
-                                    <div class="activity-icon">
-                                        <i class="fas fa-user-plus"></i>
-                                    </div>
-                                    <div>
-                                        <h6 class="mb-1">Follower Milestone</h6>
-                                        <small class="text-muted">Reached 45,000 followers</small>
-                                    </div>
-                                </div>
-                                <div class="activity-item d-flex align-items-center">
-                                    <div class="activity-icon">
-                                        <i class="fas fa-chart-line"></i>
-                                    </div>
-                                    <div>
-                                        <h6 class="mb-1">Trending Topic</h6>
-                                        <small class="text-muted">Your hashtag is trending in your region</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <a href="https://x.com/explore/tabs/trending" target="_blank">
-                                <h5 class="card-title">Top Performing Topics</h5>
-                                <div class="activity-item">
-                                    <h6 class="mb-1">Trump</h6>
-                                    <div class="d-flex justify-content-between">
-                                        <small class="text-muted">Politics • Trending</small>
-                                        <small class="text-primary">3.12M Posts</small>
-                                    </div>
-                                </div>
-                                <div class="activity-item">
-                                    <h6 class="mb-1">#NewDealForIndianBuisness</h6>
-                                    <div class="d-flex justify-content-between">
-                                        <small class="text-muted">Politics • Trending</small>
-                                        <small class="text-primary">2,732 Posts</small>
-                                    </div>
-                                </div>
-                                <div class="activity-item">
-                                    <h6 class="mb-1">Bitcoin</h6>
-                                    <div class="d-flex justify-content-between">
-                                        <small class="text-muted">Buisness & Finance • Trending</small>
-                                        <small class="text-primary">262K Posts</small>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="FP.html">
+                <img src="logo.jpg" style="width:2.8rem;height: 2.8rem;" alt="Logo"> Insight Monitor
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="FP.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="About.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Platforms
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="insta.html"><i class="fab fa-instagram me-2"></i>Instagram</a></li>
+                            <li><a class="dropdown-item active" href="x.html"><i class="fab fa-twitter me-2"></i>Twitter</a></li>
+                            <li><a class="dropdown-item" href="in.html"><i class="fab fa-linkedin me-2"></i>LinkedIn</a></li>
+                            <li><a class="dropdown-item" href="UT.html"><i class="fab fa-youtube me-2"></i>YouTube</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="help.html">Help Center</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="col-md-9 col-lg-10">
+      <div class="main-content">
+          <!-- Stats Row -->
+          <div class="row mb-4">
+              <div class="col-md-3">
+                  <div class="card stat-card">
+                      <div class="card-body">
+                          <h6 class="card-title">Followers</h6>
+                          <div class="stat-value">45.2K</div>
+                          <small class="text-white-50">↑ 2.3% this week</small>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-3">
+                  <div class="card stat-card">
+                      <div class="card-body">
+                          <h6 class="card-title">Engagement Rate</h6>
+                          <div class="stat-value">4.8%</div>
+                          <small class="text-white-50">↑ 0.5% this week</small>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-3">
+                  <div class="card stat-card">
+                      <div class="card-body">
+                          <h6 class="card-title">Impressions</h6>
+                          <div class="stat-value">128K</div>
+                          <small class="text-white-50">↑ 12% this week</small>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-3">
+                  <div class="card stat-card">
+                      <div class="card-body">
+                          <h6 class="card-title">Link Clicks</h6>
+                          <div class="stat-value">3.4K</div>
+                          <small class="text-white-50">↑ 1.7% this week</small>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Charts Row -->
+          <div class="row mb-4">
+              <div class="col-md-8">
+                  <div class="card">
+                      <div class="card-body">
+                          <h5 class="card-title">Engagement Overview</h5>
+                          <div class="chart-container">
+                              <canvas id="engagementChart"></canvas>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="card">
+                      <div class="card-body">
+                          <h5 class="card-title">Engagement Distribution</h5>
+                          <div class="chart-container">
+                              <canvas id="distributionChart"></canvas>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Recent Activity -->
+          <div class="row">
+              <div class="col-md-6">
+                  <div class="card">
+                      <div class="card-body">
+                          <h5 class="card-title">Recent Activity</h5>
+                          <div class="activity-item d-flex align-items-center">
+                              <div class="activity-icon">
+                                  <i class="fas fa-retweet"></i>
+                              </div>
+                              <div>
+                                  <h6 class="mb-1">New Retweet Record</h6>
+                                  <small class="text-muted">Your post reached 1,000 retweets</small>
+                              </div>
+                          </div>
+                          <div class="activity-item d-flex align-items-center">
+                              <div class="activity-icon">
+                                  <i class="fas fa-user-plus"></i>
+                              </div>
+                              <div>
+                                  <h6 class="mb-1">Follower Milestone</h6>
+                                  <small class="text-muted">Reached 45,000 followers</small>
+                              </div>
+                          </div>
+                          <div class="activity-item d-flex align-items-center">
+                              <div class="activity-icon">
+                                  <i class="fas fa-chart-line"></i>
+                              </div>
+                              <div>
+                                  <h6 class="mb-1">Trending Topic</h6>
+                                  <small class="text-muted">Your hashtag is trending in your region</small>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="card">
+                      <div class="card-body">
+                          <a href="https://x.com/explore/tabs/trending" target="_blank">
+                          <h5 class="card-title">Top Performing Topics</h5>
+                          <div class="activity-item">
+                              <h6 class="mb-1">Trump</h6>
+                              <div class="d-flex justify-content-between">
+                                  <small class="text-muted">Politics • Trending</small>
+                                  <small class="text-primary">3.12M Posts</small>
+                              </div>
+                          </div>
+                          <div class="activity-item">
+                              <h6 class="mb-1">#NewDealForIndianBuisness</h6>
+                              <div class="d-flex justify-content-between">
+                                  <small class="text-muted">Politics • Trending</small>
+                                  <small class="text-primary">2,732 Posts</small>
+                              </div>
+                          </div>
+                          <div class="activity-item">
+                              <h6 class="mb-1">Bitcoin</h6>
+                              <div class="d-flex justify-content-between">
+                                  <small class="text-muted">Buisness & Finance • Trending</small>
+                                  <small class="text-primary">262K Posts</small>
+                              </div>
+                          </div>
+                      </a>
+                  </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
     <!-- Footer -->
-<footer class="bg-dark text-white mt-5 py-4">
-    <div class="container text-center">
-        <p>&copy; 2024 Insight Monitor. All rights reserved.</p>
-    </div>
-</footer>
+    <footer class="bg-dark text-white mt-5 py-4">
+        <div class="container text-center">
+            <p>&copy; 2024 Insight Monitor. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <script>
-        // Engagement Overview Chart
-        const engagementCtx = document.getElementById('engagementChart').getContext('2d');
-        new Chart(engagementCtx, {
-            type: 'line',
-            data: {
-                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                datasets: [{
-                    label: 'Likes',
-                    data: [1200, 1900, 1500, 2100, 1800, 2500, 2200],
-                    borderColor: '#1DA1F2',
-                    tension: 0.4
-                }, {
-                    label: 'Retweets',
-                    data: [900, 1200, 1000, 1400, 1100, 1600, 1300],
-                    borderColor: '#17BF63',
-                    tension: 0.4
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'bottom'
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
+      // Engagement Overview Chart
+      const engagementCtx = document.getElementById('engagementChart').getContext('2d');
+      new Chart(engagementCtx, {
+          type: 'line',
+          data: {
+              labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+              datasets: [{
+                  label: 'Likes',
+                  data: [1200, 1900, 1500, 2100, 1800, 2500, 2200],
+                  borderColor: '#1DA1F2',
+                  tension: 0.4
+              }, {
+                  label: 'Retweets',
+                  data: [900, 1200, 1000, 1400, 1100, 1600, 1300],
+                  borderColor: '#17BF63',
+                  tension: 0.4
+              }]
+          },
+          options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                  legend: {
+                      position: 'bottom'
+                  }
+              },
+              scales: {
+                  y: {
+                      beginAtZero: true
+                  }
+              }
+          }
+      });
 
-        // Distribution Chart
-        const distributionCtx = document.getElementById('distributionChart').getContext('2d');
-        new Chart(distributionCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Likes', 'Retweets', 'Replies', 'Quote Tweets'],
-                datasets: [{
-                    data: [45, 25, 20, 10],
-                    backgroundColor: ['#1DA1F2', '#17BF63', '#F45D22', '#794BC4']
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'bottom'
-                    }
-                }
-            }
-        });
-    </script>
+      // Distribution Chart
+      const distributionCtx = document.getElementById('distributionChart').getContext('2d');
+      new Chart(distributionCtx, {
+          type: 'doughnut',
+          data: {
+              labels: ['Likes', 'Retweets', 'Replies', 'Quote Tweets'],
+              datasets: [{
+                  data: [45, 25, 20, 10],
+                  backgroundColor: ['#1DA1F2', '#17BF63', '#F45D22', '#794BC4']
+              }]
+          },
+          options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                  legend: {
+                      position: 'bottom'
+                  }
+              }
+          }
+      });
+  </script>
 </body>
 </html>

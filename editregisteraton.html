@@ -7,6 +7,21 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <style>
+    :root {
+            --primary-color: #1DA1F2;
+            --secondary-color:  #14171A;
+            --accent-color: #657786;
+            --light-bg: #F5F8FA;
+            --text-color: #262626;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --instagram-color: #E1306C;
+            --linkedin-color: #0077B5;
+            --youtube-color: #FF0000;
+        }
+        .navbar {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
     body {
         background-image: url(social.jpg);
         background-color: #f4f4f4;
@@ -60,6 +75,13 @@
     }
 </style>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="FP.html">
+                <img src="logo.jpg" width="40" height="40" alt="Logo"> Insight Monitor
+            </a>
+        </div>
+    </nav>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
